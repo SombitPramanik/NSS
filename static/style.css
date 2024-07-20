@@ -1,0 +1,11 @@
+:root {
+    --BoldTextColor: rgba(48, 90, 14, 1);
+    --BackGroundColor: rgba(219, 229, 231, 1);
+    --ShadowColor: rgba(198, 209, 210, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--BackGroundColor);
+}
