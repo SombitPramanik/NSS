@@ -1,11 +1,13 @@
 body {
     background: #b9e1a3;
-  }
-  main {
+}
+
+main {
     display: flex;
     align-items: start;
-  }
-  .ProfileContainer {
+}
+
+.ProfileContainer {
     padding: 10px;
     display: flex;
     height: 1187px;
@@ -16,8 +18,9 @@ body {
     flex-shrink: 0;
     align-self: stretch;
     flex-wrap: wrap;
-  }
-  .Profile {
+}
+
+.Profile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,9 +29,10 @@ body {
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-  }
-  .Profile img {
+}
+
+.Profile img {
     background: #d5edc8;
     border-radius: 10px;
     margin: 10px;
-  }
+}
