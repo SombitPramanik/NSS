@@ -17,10 +17,11 @@ nav {
     justify-content: space-between;
     background: transparent;
     width: 100vw;
+    height: 60px;
     padding-left: 5%;
     padding-right: 5%;
     background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(50px);
     margin: 0 50%;
     transform: translate(-50%);
     /* Fid at top position */
@@ -28,19 +29,19 @@ nav {
     position: fixed;
     top: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 20px 20px;
+    /*border-radius: 0 0 20px 20px;*/
 }
 
 .logo>img {
-    width: 150px;
-    height: 150px;
+    width: 50px;
+    height: 50px;
     margin: 5px;
 
 }
 
 .logo {
-    width: 250px;
-    height: 180px;
+    width: 50px;
+    height: 80px;
     border-radius: 0 0 30px 30px;
     background: rgba(185, 225, 163, 1);
     display: flex;
@@ -63,8 +64,8 @@ nav {
 
 .login {
     background: rgba(125, 172, 55, 1);
-    padding: 15px 27px;
-    border-radius: 15px;
+    padding: 10px 22px;
+    border-radius: 20px;
 
     gap: 10px;
 }
@@ -315,3 +316,5 @@ footer h3 {
     align-self: stretch;
     color: #FFF;
 }
+
+
