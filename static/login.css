@@ -9,7 +9,8 @@
 
 header {
     background-image: url("backgroundCarouselimage.png");
-    height: 1280px;
+    min-height: 1280px;
+    object-fit: contain;
 }
 
 nav {
@@ -154,7 +155,7 @@ footer h3 {
     height: 450px;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
     border: 1px solid white;
     border-radius: 5px;
     align-items: center;
@@ -186,10 +187,18 @@ footer h3 {
     font-family: poppins;
     letter-spacing: 1px;
     text-indent: 35px;
-
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 15px;
+}
+
+.lgin input:nth-child(1){
+    background-image: url("user.png");
+}
+
+.lgin input:nth-child(2)
+{
+    background-image: url("lock.png");
 }
 
 .lgin input,button{

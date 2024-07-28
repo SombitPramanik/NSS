@@ -55,6 +55,7 @@ nav {
     width: 45%;
     justify-content: space-evenly;
     font-weight: 700;
+    font-size: 19px;
 }
 
 .NavItems a {
@@ -66,7 +67,6 @@ nav {
     background: rgba(125, 172, 55, 1);
     padding: 10px 22px;
     border-radius: 20px;
-
     gap: 10px;
 }
 
