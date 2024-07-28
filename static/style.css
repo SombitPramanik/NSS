@@ -254,6 +254,8 @@ main h2 {
 }
 
 .CollegeLogo {
+    display: flex;
+    justify-content: center;
     height: 300px;
     width: 300px;
     border-radius: 30px;
