@@ -15,5 +15,10 @@ def Members():
 def Login():
     return render_template("login.html")
 
+
+@app.route("/About")
+def About():
+    return render_template("about.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
