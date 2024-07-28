@@ -1,6 +1,6 @@
 
 /* login page css */
-.form{
+/* .form{
     width: 350px;
     height: 450px;
     display: flex;
@@ -85,4 +85,149 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
     color: whitesmoke;
+} */
+
+
+
+.wrapper{
+    display: none;
+    position: fixed;
+    width: 380px;
+    height: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255,255,.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    top: 18%;
+    left: 35%;
+    transform: translate(-18%,-50%);
+    transform: scale(0);
+    overflow: hidden;
+    transition: height .2s ease;
+}
+
+.wrapper.active_popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 350px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.lgin{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.lgin{
+    transition: none;
+    transform: translateX(-380px);
+}
+
+.wrapper .form-box.otp{
+    position: absolute;
+    transform: translateX(380px);
+}
+
+.wrapper.active .form-box.otp{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: rgba(125, 172, 55, 1);
+    text-align: center;
+}
+
+.input_box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid rgba(125, 172, 55, 1);
+    margin: 30px 0;
+}
+
+.input_box label{
+    color: rgba(125, 172, 55, 1);
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .4s;
+}
+
+.input_box input:focus~label,
+.input_box input:valid~label{
+    top: -5px;
+}
+
+.input_box input{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    padding: 0 35px 0 5px;
+}
+
+.rmbr{
+    font-size: 1em;
+    color: rgba(125, 172, 55, 1);
+    font-weight: 700;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rmbr label input{
+    accent-color: rgba(125, 172, 55, 1);
+}
+
+.rmbr a{
+    color: rgba(125, 172, 55, 1);
+    text-decoration: none;
+}
+
+.rmbr a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn{
+    margin-top: 15px;
+    width: 100%;
+    height: 45px;
+    background: rgba(125, 172, 55, 1);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.wrapper .close_ico{
+    position: absolute;
+    border: none;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    background:  rgba(125, 172, 55, 1);
+    border-bottom-left-radius: 20px;
+    z-index: 1;
 }

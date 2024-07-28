@@ -8,6 +8,7 @@
     <style></style>
     <link rel="stylesheet" href="static/style.css" />
     <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="static/login.css">
   </head>
   <body>
     <header>
@@ -20,9 +21,10 @@
           <a href="#">Events</a>
           <a href="/Members">Members</a>
         </div>
-        <div class="login">
+        <!-- <div class="login">
           <a href="/Login">Login</a>
-        </div>
+        </div> -->
+        <button class="login">Login</button>
       </nav>
       <div class="HeroText">
         <h1>CEMK NSS Group</h1>
@@ -63,6 +65,46 @@
         </div>
       </div>
     </header>
+
+
+    <div class="wrapper">
+      <button type="reset" class="close_ico"><img src="static/close_16_w.png"></button>
+      <div class="form-box lgin">
+        <h2>Login</h2>
+        <form action="#">
+          <div class="input_box">
+            <input type="email" required>
+            <label>Email</label>
+          </div>
+          <div class="input_box">
+            <input type="password" required>
+            <label>Password</label>
+          </div>
+          <div class="rmbr">
+            <label>
+              <input type="checkbox">Remember me
+            </label>
+            <a href="#">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn lgin">Login</button>
+        </form>
+      </div>
+
+      <div class="form-box otp">
+        <h2>Enter OTP</h2>
+        <form action="#">
+          <div class="input_box">
+            <input type="otp" required>
+            <label>OTP</label>
+          </div>
+          <button type="submit" class="btn otp">Submit</button>
+          <button type="reset" class="btn bck">Back</button>
+        </form>
+      </div>
+    </div>
+
+
+
     <main>
       <h2>Latest From us</h2>
       <div class="BlogContainer">
@@ -139,5 +181,6 @@
         Copyright © CEM, Kolaghat. All Rights Reserved.
       </div>
     </footer>
+    <script src="static/script_login.js"></script>
   </body>
 </html>
