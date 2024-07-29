@@ -70,29 +70,7 @@ nav {
 
 }
 
-.login {
-    width: 80px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid rgba(125, 172, 55, 1);
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1.1em;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-    transition: .5s;
-}
 
-.login:hover{
-    background: rgba(125, 172, 55, 1);
-}
-
-.login a {
-    font-weight: 700;
-    color: rgba(250, 254, 230, 1);
-}
 /* Main  */
 
 main {

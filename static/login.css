@@ -1,99 +1,36 @@
-
-/* login page css */
-/* .form{
-    width: 350px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    backdrop-filter: blur(30px);
-    border: 1px solid white;
-    border-radius: 5px;
-    align-items: center;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 10;
-}
+/* login function css */
 
 
-.form h4{
-    font-family: poppins;
-    font-size: 25px;
-    font-weight: 300;
-    color: white;
-}
-
-.form .lgin{
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-}
-
-.lgin input{
-    background-color: #ffffff2e;
-    color: white;
-    font-family: poppins;
-    letter-spacing: 1px;
-    text-indent: 35px;
-    background-repeat: no-repeat;
-    background-size: 20px;
-    background-position: 15px;
-}
-
-.lgin input:nth-child(1){
-    margin-top: 120px;
-    background-image: url("user.png");
-}
-
-.lgin input:nth-child(2)
-{
-    background-image: url("lock.png");
-}
-
-.lgin input,button{
-    margin: 10px;
-    padding: 10px 5px;
-    width: 260px;
-    border: none;
+.login {
+    width: 80px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid rgba(125, 172, 55, 1);
     outline: none;
-    border-radius: 60px;
-    font-size: 16px;
-}
-
-.lgin input::placeholder{
-    font-size: 14px;
-    color: whitesmoke;
-
-}
-
-.lgin button{
-    margin-top: 90px;
-    background-color: rgb(rgb(192,188,188), green, blue);
-    font-size: 14px;
-    font-family: calibri;
-    text-transform: uppercase;
+    border-radius: 6px;
     cursor: pointer;
-    
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
 }
 
-.sugs{
-    width: 85%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    color: whitesmoke;
-} */
+.login:hover{
+    background: rgba(125, 172, 55, 1);
+}
 
+.login a {
+    font-weight: 700;
+    color: rgba(250, 254, 230, 1);
+}
 
 
 .wrapper{
     display: none;
     position: fixed;
     width: 380px;
-    height: 420px;
+    height: 400px;
     background: transparent;
     border: 2px solid rgba(255, 255,255,.5);
     border-radius: 20px;
@@ -101,46 +38,32 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
-    top: 18%;
+    top: 20%;
     left: 35%;
-    transform: translate(-18%,-50%);
-    transform: scale(0);
-    overflow: hidden;
-    transition: height .2s ease;
+    /* transform: translate(-50%,-50%); */
+    /* transform: scale(0); */
+    overflow: hidden; 
+    transition: height .5s ease;
 }
 
-.wrapper.active_popup{
-    transform: scale(1);
-}
-
-.wrapper.active{
-    height: 350px;
-}
 
 .wrapper .form-box{
     width: 100%;
     padding: 40px;
 }
 
-.wrapper .form-box.lgin{
+ .wrapper .form-box.lgin{
     transition: transform .18s ease;
     transform: translateX(0);
 }
 
-.wrapper.active .form-box.lgin{
-    transition: none;
-    transform: translateX(-380px);
-}
+
 
 .wrapper .form-box.otp{
     position: absolute;
-    transform: translateX(380px);
-}
-
-.wrapper.active .form-box.otp{
-    transition: transform .18s ease;
     transform: translateX(0);
 }
+
 
 .form-box h2{
     font-size: 2em;
@@ -219,6 +142,7 @@
 }
 
 .wrapper .close_ico{
+    cursor: pointer;
     position: absolute;
     border: none;
     top: 0;
