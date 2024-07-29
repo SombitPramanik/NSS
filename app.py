@@ -1,11 +1,9 @@
 from flask import (
     Flask,
-    Response,
     render_template,
     request,
     redirect,
     session,
-    url_for,
     jsonify,
 )
 import mysql.connector
@@ -22,10 +20,9 @@ DB_Password = DataBaseSecret.split(",")[1]
 
 
 app = Flask(__name__)
-app.secret_key = '*$(#sds08279s**[sdso])' 
+app.secret_key = '*$(#sds08279s**0923}wew@@)' 
 
 def DBConnector(user=DB_User_Name, password=DB_Password):
-    """Create a database Connection and return the Connection object."""
     try:
         print(password,user)
         Connection = mysql.connector.connect(
@@ -35,7 +32,7 @@ def DBConnector(user=DB_User_Name, password=DB_Password):
             database="NSS_CEMK",
         )
         if Connection.is_connected():
-            print("Connection to the database was successful")
+            # print("Connection to the database was successful")
             return Connection
     except Error as e:
         print(f"Error: '{e}' occurred while connecting to the database")
@@ -69,80 +66,16 @@ def SendOTP():
         query = "SELECT * FROM LoginDB WHERE Email = %s AND Password = %s"
         cursor.execute(query, (Email, Password))
         result = cursor.fetchone()
+        if not result:
+            return jsonify({"Message":"Unregistered Email, Incident Reported"})
         cursor.close()
         Connection.close()
 
         OTP = random.randint(000000, 999999)
-        EmailMessage = f"""\
-            <html>
-            <head>
-                <style>
-                    body {{
-                        font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        margin: 0;
-                        padding: 0;
-                    }}
-                    .container {{
-                        max-width: 600px;
-                        margin: 50px auto;
-                        background-color: #ffffff;
-                        padding: 20px;
-                        border-radius: 8px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    }}
-                    .header {{
-                        text-align: center;
-                        padding-bottom: 20px;
-                        border-bottom: 1px solid #dddddd;
-                    }}
-                    .header h1 {{
-                        font-size: 24px;
-                        margin: 0;
-                    }}
-                    .content {{
-                        padding: 20px 0;
-                        text-align: center;
-                    }}
-                    .content p {{
-                        font-size: 16px;
-                        margin: 10px 0;
-                    }}
-                    .otp {{
-                        font-size: 24px;
-                        font-weight: bold;
-                        color: #333333;
-                        margin-top: 20px;
-                    }}
-                    .footer {{
-                        text-align: center;
-                        padding-top: 20px;
-                        border-top: 1px solid #dddddd;
-                    }}
-                    .footer p {{
-                        font-size: 14px;
-                        color: #777777;
-                        margin: 0;
-                    }}
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <div class="header">
-                        <h1>NSS CEMK</h1>
-                    </div>
-                    <div class="content">
-                        <p>Welcome to CEMK NSS Admin Page Mr/Ms <strong>{Email}</strong>,</p>
-                        <p>Here is your verification OTP:</p>
-                        <div class="otp">{OTP}</div>
-                    </div>
-                    <div class="footer">
-                        <p>This Platform is Truly Developed by Sombit Pramanik</p>
-                    </div>
-                </div>
-            </body>
-            </html>
-            """
+        with open("EmailTemplate.html","r") as Ett:
+            EmailMessage = Ett.read()
+            Ett.close()
+
         with open("EmailAPI.key","r") as key:
             APIKey = key.read()
             key.close()
@@ -155,17 +88,18 @@ def SendOTP():
         }
         url = "https://smtp.spptechnologies.in/"
         response = requests.post(url, json=APIDate)
-                
-        print(OTP)
-        session["OTP"] = OTP
-        session["Email"] = Email
+        if response:
+            session["OTP"] = OTP
+            session["Email"] = Email
 
-        if result:
-            return jsonify(True)
+            if result:
+                return jsonify({"Message": True})
+            else:
+                return jsonify({"Message": False})
         else:
-            return jsonify(False)
-    
-    return jsonify("Invalid connection")
+            return jsonify({"Message":"Some Problems with the Email API"})
+    else:
+        return jsonify({"Message":"Some Problems with our Backend"})
 
 
 @app.route("/VerifyOTP", methods=["POST"])
