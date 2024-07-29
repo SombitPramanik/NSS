@@ -9,7 +9,7 @@
 
 
 header {
-    background-image: url("backgroundCarouselimage.png");
+    background-image: url("../Images/backgroundCarouselimage.png");
     height: 1280px;
     z-index: 10;
 }

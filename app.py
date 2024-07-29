@@ -74,10 +74,10 @@ def SendOTP():
         query = "SELECT * FROM LoginDB WHERE Email = %s AND Password = %s"
         cursor.execute(query, (Email, Password))
         result = cursor.fetchone()
-        if not result:
-            return jsonify({"Message":"Unregistered Email, Incident Reported"})
         cursor.close()
         Connection.close()
+        if not result:
+            return jsonify({"Message":"Unregistered Email, Incident Reported"})
 
         OTP = random.randint(000000, 999999)
         with open("EmailTemplate.html","r") as Ett:
@@ -87,6 +87,9 @@ def SendOTP():
         with open("EmailAPI.key","r") as key:
             APIKey = key.read()
             key.close()
+
+        EmailMessage = EmailMessage.replace("{Email}",Email)
+        EmailMessage = EmailMessage.replace("{OTP}",f"{OTP}")
 
         APIDate = {
             "AuthID": f"{APIKey}",
@@ -114,12 +117,13 @@ def SendOTP():
 def VerifyOTP():
     data = request.get_json()
     user_otp = data.get("OTP")
+    print(user_otp,session["OTP"])
     
     if 'OTP' in session and session['OTP'] == int(user_otp):
         session['AuthID'] = f"{session["Email"]}{session["OTP"]}"
-        return jsonify(True)
+        return jsonify({"Message": True})
     else:
-        return jsonify(False)
+        return jsonify({"Message": False})
 
 
 @app.route("/Logout")
