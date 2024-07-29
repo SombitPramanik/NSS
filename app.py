@@ -54,6 +54,14 @@ def About():
     return render_template("about.html")
 
 
+@app.route("/Dashboard")
+def Dashboard():
+    if 'AuthID' in session:
+        return render_template("dashboard.html")
+    else:
+        return redirect("/")
+
+
 @app.route("/SendOTP", methods=["POST"])
 def SendOTP():
     data = request.get_json()
@@ -114,12 +122,11 @@ def VerifyOTP():
         return jsonify(False)
 
 
-@app.route("/Dashboard")
-def Dashboard():
-    if 'AuthID' in session:
-        return render_template("dashboard.html")
-    else:
-        return redirect("/")
+@app.route("/Logout")
+def Logout():
+    session.clear()
+    return redirect("/")
+
 
 
 if __name__ == "__main__":
