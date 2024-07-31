@@ -1,0 +1,82 @@
+.login {
+  outline: 2px solid rgb(38, 100, 87);
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+  font-weight: 700;
+  font-family: "Courier New", Courier, monospace;
+  transition: 0.35s ease-in-out;
+}
+
+.login:hover {
+  scale: 1.08;
+  background-color: rgba(125, 172, 55, 1);
+  transition: 0.35s ease-in-out;
+  outline: 2px solid rgba(125, 172, 55, 1);
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.733);
+  color: #fff;
+}
+
+.AdminNoticeSection {
+  outline: 2px solid red;
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.NewEvent{
+  outline: 2px solid red;
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 500px;
+  margin-bottom: 20px;
+}
+.UploadImage{
+  outline: 2px solid blue;
+  border-radius: 10px;
+  width: 30%;
+  height: 480px;
+}
+.TextArea{
+  outline: 2px solid blue;
+  border-radius: 10px;
+  width: 65%;
+  height: 480px;
+}
+.ParticipatedStudents{
+  border-radius: 10px;
+  outline: 2px solid red;
+  width: 100%;  
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.EachStudent{
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+  border: 2px dashed black;
+}
+.PreviousEvents{
+  outline: 2px solid red;
+  width: 100%;
+  /* height: 320px; */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.EachPreviousEvents{
+  outline: 2px solid blue;
+  height: 300px;
+  width: 100%;
+  border-radius: 20px;
+  margin: 20px;
+}
