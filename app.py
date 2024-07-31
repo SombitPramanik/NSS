@@ -24,7 +24,6 @@ app.secret_key = '*$(#sds08279s**0923}wew@@)'
 
 def DBConnector(user=DB_User_Name, password=DB_Password):
     try:
-        print(password,user)
         Connection = mysql.connector.connect(
             host="localhost",
             user=user.strip(),
@@ -39,22 +38,22 @@ def DBConnector(user=DB_User_Name, password=DB_Password):
         return None
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def Index():
     return render_template("index.html")
 
 
-@app.route("/Members")
+@app.route("/Members", methods=["GET"])
 def Members():
     return render_template("members.html")
 
 
-@app.route("/About")
+@app.route("/About", methods=["GET"])
 def About():
     return render_template("about.html")
 
 
-@app.route("/Dashboard")
+@app.route("/Dashboard", methods=["GET"])
 def Dashboard():
     if 'AuthID' in session:
         return render_template("dashboard.html")
@@ -98,7 +97,16 @@ def SendOTP():
             "Message": EmailMessage,
         }
         url = "https://smtp.spptechnologies.in/"
-        response = requests.post(url, json=APIDate)
+        try:
+            response = requests.post(url, json=APIDate)
+        except Exception as E:
+            response = None
+            print(OTP)
+            return jsonify({"Message":"Email API is Temporally Down Sorry for inconvenience"})
+            # Comment this line if you want to work offline, and want to bypass the Email API
+
+        # uncomment this line and comment line the bellow line to avoid the Email API
+        # if not response:
         if response:
             session["OTP"] = OTP
             session["Email"] = Email
@@ -125,6 +133,18 @@ def VerifyOTP():
     else:
         return jsonify({"Message": False})
 
+
+@app.route("/ForgotPasswd", methods=["GET"])
+def ForgotPasswd():
+    # This will be change in feature Just for  demonstration i have create this route 
+    # actual logic is like this :
+    '''
+    First verify that the email is actually is belongs to the user who is trying to Do the Forgot task.
+    if the Email verification is done then we will give him a new popup using JS Alert Box,
+    after that we will able to get the New Password and then we will change the password in the DB.
+    and Finally send a Notification to the Super Admin Group to Notify that this Email has change its password
+    '''
+    return redirect("/Logout")
 
 @app.route("/Logout")
 def Logout():
